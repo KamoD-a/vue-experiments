@@ -1,25 +1,17 @@
 <template>
-    <h2>AboutView</h2>
-    <label>
-      Search: <input v-model.trim="search" maxlength="20">
-    </label>
-  </template>
+    <h2>About</h2>
+    <p>This is a private project to explore vue.js.</p>
+    <button class="action-button" @click="goToHome">Back to Home</button>
+</template>
 
 
-<script setup>
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-
-const router = useRouter()
-const route = useRoute()
-
-const search = computed({
-  get() {
-    return route.query.search ?? ''
+<script>
+export default {
+  methods: {
+    goToHome() {
+      this.$router.push('/')
+    },
   },
-  set(search) {
-    router.replace({ query: { search } })
-  }
-})
-</script>
+}
 
+</script>
